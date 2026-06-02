@@ -1,0 +1,3 @@
+SELECT Id, Name, Type, Industry
+FROM Account
+WHERE Id = '001J100000Y69pTIAR'

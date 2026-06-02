@@ -1,0 +1,31 @@
+<template>
+
+    <lightning-card title="Create Account">
+
+        <lightning-input
+            label="Account Name"
+            value={accountName}
+            onchange={handleNameChange}>
+        </lightning-input>
+
+        <lightning-input
+            label="Industry"
+            value={industry}
+            onchange={handleIndustryChange}>
+        </lightning-input>
+
+        <lightning-input
+            label="Phone"
+            value={phone}
+            onchange={handlePhoneChange}>
+        </lightning-input>
+
+        <lightning-button
+            label="Create Account"
+            variant="brand"
+            onclick={handleCreateAccount}>
+        </lightning-button>
+
+    </lightning-card>
+
+</template>
