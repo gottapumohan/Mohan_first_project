@@ -1,12 +1,11 @@
-import {
-    LightningElement,
-    wire
-} from 'lwc';
+import { LightningElement, wire }
+from 'lwc';
 
 import {
     publish,
     MessageContext
-} from 'lightning/messageService';
+}
+from 'lightning/messageService';
 
 import CUSTOMER_CHANNEL
 from '@salesforce/messageChannel/CustomerMessageChannel__c';
@@ -14,14 +13,14 @@ from '@salesforce/messageChannel/CustomerMessageChannel__c';
 export default class CustomerSearch
 extends LightningElement {
 
-    customerId;
+    accountNumber;
 
     @wire(MessageContext)
     messageContext;
 
     handleChange(event) {
 
-        this.customerId =
+        this.accountNumber =
             event.target.value;
     }
 
@@ -29,8 +28,8 @@ extends LightningElement {
 
         const payload = {
 
-            customerId:
-            this.customerId
+            accountNumber:
+            this.accountNumber
         };
 
         publish(

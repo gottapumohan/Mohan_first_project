@@ -1,7 +1,4 @@
-import {
-    LightningElement,
-    wire
-}
+import { LightningElement, wire }
 from 'lwc';
 
 import {
@@ -16,7 +13,7 @@ from '@salesforce/messageChannel/CustomerMessageChannel__c';
 export default class CustomerProfile
 extends LightningElement {
 
-    customerId;
+    accountNumber;
 
     subscription = null;
 
@@ -43,10 +40,9 @@ extends LightningElement {
 
             (message) => {
 
-                this.customerId =
-                    message.customerId;
+                this.accountNumber =
+                    message.accountNumber;
             }
-
         );
     }
 }
