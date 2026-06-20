@@ -1,0 +1,44 @@
+<template>
+
+    <lightning-card title="Child Component">
+
+        <div class="slds-p-around_medium">
+
+            <lightning-input
+                label="Customer Name"
+                onchange={handleName}>
+            </lightning-input>
+
+            <lightning-input
+                label="Email"
+                onchange={handleEmail}>
+            </lightning-input>
+
+            <lightning-input
+                label="Phone"
+                onchange={handlePhone}>
+            </lightning-input>
+
+            <lightning-input
+                label="City"
+                onchange={handleCity}>
+            </lightning-input>
+
+            <lightning-input
+                label="Industry"
+                onchange={handleIndustry}>
+            </lightning-input>
+
+            <br/>
+
+            <lightning-button
+                label="Send To Parent"
+                variant="brand"
+                onclick={sendData}>
+            </lightning-button>
+
+        </div>
+
+    </lightning-card>
+
+</template>

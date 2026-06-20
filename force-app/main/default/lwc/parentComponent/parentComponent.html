@@ -1,0 +1,46 @@
+<template>
+
+    <lightning-card title="Parent Component">
+
+        <div class="slds-p-around_medium">
+
+            <c-child-form
+                oncustomerdata={handleCustomerData}>
+            </c-child-form>
+
+            <br/>
+
+            <div class="slds-box">
+
+                <p>
+                    <b>Name:</b>
+                    {customerName}
+                </p>
+
+                <p>
+                    <b>Email:</b>
+                    {email}
+                </p>
+
+                <p>
+                    <b>Phone:</b>
+                    {phone}
+                </p>
+
+                <p>
+                    <b>City:</b>
+                    {city}
+                </p>
+
+                <p>
+                    <b>Industry:</b>
+                    {industry}
+                </p>
+
+            </div>
+
+        </div>
+
+    </lightning-card>
+
+</template>
