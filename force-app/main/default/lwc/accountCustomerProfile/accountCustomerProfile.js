@@ -11,7 +11,7 @@ extends LightningElement {
             new ShowToastEvent({
                 title: 'Success',
                 message:
-                'Account updated successfully',
+                'Account updated successfully please do next update',
                 variant: 'success'
             })
         );
