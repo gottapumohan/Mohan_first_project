@@ -1,0 +1,41 @@
+<template>
+
+    <lightning-card title="Opportunity Dashboard">
+
+        <div class="slds-p-around_medium">
+
+            <p>
+                Opportunity : {opportunityName}
+            </p>
+
+            <p>
+                Stage : {stageName}
+            </p>
+
+            <p>
+                Amount : {amount}
+            </p>
+
+            <p>
+                Close Date : {closeDate}
+            </p>
+
+        </div>
+
+        <c-opportunity-risk-analysis
+
+            opportunity-name={opportunityName}
+
+            stage-name={stageName}
+
+            amount={amount}
+
+            close-date={closeDate}
+
+            account-id={accountId}>
+
+        </c-opportunity-risk-analysis>
+
+    </lightning-card>
+
+</template>
