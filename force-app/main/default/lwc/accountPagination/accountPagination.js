@@ -14,7 +14,7 @@ const COLUMNS = [
 
 export default class AccountPagination extends LightningElement {
 
-    @track accounts;
+    @track accounts = [];
 
     columns = COLUMNS;
 
@@ -24,6 +24,10 @@ export default class AccountPagination extends LightningElement {
 
     totalRecords = 0;
 
+    startRecord = 0;
+
+    endRecord = 0;
+
     connectedCallback() {
 
         this.loadAccounts();
@@ -32,6 +36,11 @@ export default class AccountPagination extends LightningElement {
             .then(result => {
 
                 this.totalRecords = result;
+
+            })
+            .catch(error => {
+
+                console.error(error);
 
             });
     }
@@ -45,6 +54,12 @@ export default class AccountPagination extends LightningElement {
         .then(result => {
 
             this.accounts = result;
+
+            this.startRecord =
+                this.offsetValue + 1;
+
+            this.endRecord =
+                this.offsetValue + result.length;
 
         })
         .catch(error => {

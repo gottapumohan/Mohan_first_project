@@ -8,7 +8,12 @@
             columns={columns}>
         </lightning-datatable>
 
-        <div class="slds-p-around_medium">
+        <div class="recordCount">
+            Showing {startRecord} - {endRecord}
+            of {totalRecords} Records
+        </div>
+
+        <div class="slds-align_absolute-center slds-p-around_medium">
 
             <lightning-button
                 label="Previous"
