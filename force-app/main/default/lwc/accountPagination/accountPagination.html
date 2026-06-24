@@ -1,11 +1,12 @@
 <template>
-
     <lightning-card title="Account Pagination">
 
         <lightning-datatable
             key-field="Id"
             data={accounts}
-            columns={columns}>
+            columns={columns}
+            draft-values={draftValues}
+            onsave={handleSave}>
         </lightning-datatable>
 
         <div class="recordCount">
@@ -31,5 +32,4 @@
         </div>
 
     </lightning-card>
-
 </template>
