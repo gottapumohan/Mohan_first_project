@@ -1,35 +1,125 @@
 <template>
-    <lightning-card title="Account Pagination">
+
+    <!-- Loading Spinner -->
+    <template if:true={isLoading}>
+        <lightning-spinner
+            alternative-text="Loading"
+            size="large"
+            variant="brand">
+        </lightning-spinner>
+    </template>
+
+    <lightning-card title="Enterprise Account Management"
+                    icon-name="standard:account">
+
+        <!-- Search & Refresh -->
+        <div class="slds-grid slds-wrap slds-p-around_medium">
+
+            <div class="slds-col slds-size_1-of-2">
+
+                <lightning-input
+                    type="search"
+                    label="Search Account"
+                    placeholder="Search by Account Name..."
+                    value={searchKey}
+                    onchange={handleSearch}>
+                </lightning-input>
+
+            </div>
+
+            <div class="slds-col slds-size_1-of-2 slds-text-align_right">
+
+                <lightning-button
+                    label="Refresh"
+                    variant="brand"
+                    icon-name="utility:refresh"
+                    onclick={handleRefresh}>
+                </lightning-button>
+
+            </div>
+
+        </div>
+
+        <!-- Record Count -->
+
+        <div class="recordCount">
+
+            Showing {startRecord} - {endRecord} of {totalRecords} Records
+
+        </div>
+
+        <!-- Datatable -->
 
         <lightning-datatable
             key-field="Id"
             data={accounts}
             columns={columns}
+            sorted-by={sortBy}
+            sorted-direction={sortDirection}
+            onsort={handleSort}
+            hide-checkbox-column
             draft-values={draftValues}
             onsave={handleSave}>
         </lightning-datatable>
 
-        <div class="recordCount">
-            Showing {startRecord} - {endRecord}
-            of {totalRecords} Records
-        </div>
+        <!-- Footer -->
 
-        <div class="slds-align_absolute-center slds-p-around_medium">
+        <div class="slds-grid slds-wrap slds-p-around_medium">
 
-            <lightning-button
-                label="Previous"
-                onclick={handlePrevious}
-                disabled={disablePrevious}>
-            </lightning-button>
+            <div class="slds-col slds-size_1-of-3">
 
-            <lightning-button
-                label="Next"
-                onclick={handleNext}
-                disabled={disableNext}
-                class="slds-m-left_small">
-            </lightning-button>
+                <lightning-button
+
+                    label="Previous"
+
+                    icon-name="utility:back"
+
+                    onclick={handlePrevious}
+
+                    disabled={disablePrevious}>
+
+                </lightning-button>
+
+            </div>
+
+            <div class="slds-col slds-size_1-of-3 slds-text-align_center">
+
+                <strong>
+
+                    Page
+
+                    {currentPage}
+
+                    of
+
+                    {totalPages}
+
+                </strong>
+
+            </div>
+
+            <div class="slds-col slds-size_1-of-3 slds-text-align_right">
+
+                <lightning-button
+
+                    label="Next"
+
+                    variant="brand"
+
+                    icon-name="utility:forward"
+
+                    icon-position="right"
+
+                    onclick={handleNext}
+
+                    disabled={disableNext}>
+
+                </lightning-button>
+
+            </div>
 
         </div>
 
     </lightning-card>
+
 </template>
